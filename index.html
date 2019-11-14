@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/left.css">
+    <link rel="stylesheet" href="./css/mid.css">
+    <link rel="stylesheet" href="./css/right.css">
+    <link rel="stylesheet" href="./css/leftTop.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+    <!-- <link rel="stylesheet" href="./css/leftBottom.css"> -->
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2 left">
+                <div class="row">
+                    <div class="left-top">
+                        <div id="control-panel">Control Panel</div>
+                        <div id="button-tag">
+                            <button type="button" class="btn btn-sm btn-primary">211高校</button>
+                            <button type="button" class="btn btn-sm btn-success">985高校</button>
+                            <button type="button" class="btn btn-sm btn-info">C9</button>
+                            <button type="button" class="btn btn-sm btn-warning">一本</button>
+                        </div>
+                        <div>
+                            <select class="selectpicker btn btn-success  btn-sm" id="selectpicker1" onchange="showCity(this)">
+                <option>省</option>
+              </select>
+                            <select class="selectpicker btn btn-info  btn-sm" id="selectpicker2">
+                <option>市</option>
+              </select>
+                        </div>
+                    </div>
+                    <div class="left-bottom">
+                        <div class="controlWeight">
+                            <label class="slider">城市</label>
+                            <div id="slider"></div>
+                            <!-- <input type="range" id="slider" name="points" min="1" max="100"> -->
+                            <!-- <label class="slider">城市</label> -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7 mid">
+                <div class="row">
+                    <div class="mid-top" id="mid-top"></div>
+                    <div class="mid-bottom"></div>
+                </div>
+            </div>
+            <div class="col-md-3 right">
+                <div class="row">
+                    <div class="right-top"> </div>
+                    <div class="right-mid" id="right-mid"></div>
+                    <div class="right-bottom" id="right-bottom"></div>
+                </div>
+            </div>
+
+        </div>
+        <script src="./src/city.js"></script>
+        <script src="https://cdn.bootcss.com/popper.js/1.15.0/umd/popper.js"></script>
+        <script src="./node_modules/jquery/dist/jquery.js"></script>
+        <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="./node_modules/echarts/dist/echarts.js"></script>
+        <script src="http://api.map.baidu.com/api?v=2.0&ak=1nY6EXpjn5wI7FiCTRSNM2BFY7araw09"></script>
+        <script src="./node_modules/echarts/dist/extension/bmap.js"></script>
+        <!-- <script src="./src/bootstrap-slider.js"></script> -->
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="./js/right.js/rightMid.js"></script>
+        <script src="./js/right.js/rightBottom.js"></script>
+        <script src="./src/china.js"></script>
+        <!-- ------------------------------------------------------------------ -->
+        <script src="./js/left.js/controlWeight.js"></script>
+        <!-- <script src="./js/mid.js/data.js"></script> -->
+        <script src="./js/mid.js/midmap.js"></script>
+        <script src="./js/left.js/method.js"></script>
+</body>
+
+</html>

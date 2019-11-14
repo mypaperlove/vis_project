@@ -1,0 +1,28 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.container-fluid {
+    height: 100%;
+    border: 3px solid #2b8b8b
+}
+
+.row {
+    height: 100%;
+}
+
+.left {
+    border-style: solid;
+    border-color: #2b8b8b;
+    border-width: 0px 3px 0px 0px;
+}
+
+.mid {
+    border-style: solid;
+    border-color: #2b8b8b;
+    border-width: 0px 3px 0px 0px;
+}
+
+.right {}
