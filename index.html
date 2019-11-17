@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="./css/leftTop.css">
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
-    <!-- <link rel="stylesheet" href="./css/leftBottom.css"> -->
+    <link rel="stylesheet" href="./node_modules/bootstrap-slider/dist/css/bootstrap-slider.css">
+    <link rel="stylesheet" href="./css/leftBottom.css"></link>
 
 </head>
 
@@ -41,10 +42,14 @@
                     </div>
                     <div class="left-bottom">
                         <div class="controlWeight">
-                            <label class="slider">城市</label>
-                            <div id="slider"></div>
-                            <!-- <input type="range" id="slider" name="points" min="1" max="100"> -->
-                            <!-- <label class="slider">城市</label> -->
+                            <label>城市</label>
+                            <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="14" />
+                            <label>分数</label>
+                        </div>
+                        <div class="controlWeight">
+                            <label>城市</label>
+                            <input id="ex2" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="14" />
+                            <label>分数</label>
                         </div>
 
                     </div>
@@ -72,8 +77,8 @@
         <script src="./node_modules/echarts/dist/echarts.js"></script>
         <script src="http://api.map.baidu.com/api?v=2.0&ak=1nY6EXpjn5wI7FiCTRSNM2BFY7araw09"></script>
         <script src="./node_modules/echarts/dist/extension/bmap.js"></script>
-        <!-- <script src="./src/bootstrap-slider.js"></script> -->
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+        <script src="./node_modules/bootstrap-slider/dist/bootstrap-slider.js"></script>
         <script src="./js/right.js/rightMid.js"></script>
         <script src="./js/right.js/rightBottom.js"></script>
         <script src="./src/china.js"></script>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        rect.bordered {
+            stroke: #A1A1A1;
+            stroke-width: 1px;
+        }
+        
+        text.mono {
+            font-size: 9pt;
+            font-family: 'Courier New', Courier, monospace;
+            fill: #000;
+        }
+        
+        text.axis-workweek {
+            fill: #000;
+        }
+        
+        text.axis-worktime {
+            fill: #000;
+        }
+    </style>
+    <script src="../node_modules/d3/dist/d3.js"></script>
+</head>
+
+<body>
+    <div id="chart"></div>
+    <div id="new div"></div>
+    <script>
+        var array_data = [];
+        var margin = {
+                top: 50,
+                right: 0,
+                bottom: 100,
+                left: 150
+            },
+            width = 960 - margin.left - margin.right,
+            height = 1030 - margin.top - margin.bottom,
+            gridSize = Math.floor(width / 24),
+            XlabelName = ["G", "MIN", "PTS", "FGM", "FGA", "FGP", "FTM", "FTA", "FTP", "3PM", "3PA", "3PP", "ORB", "DRB", "TRB", "AST", "STL", "BLK", "TO", "PF"];
+
+
+        d3.csv("ball_data.csv").then(res => render(res));
+        let colorScale = d3.scaleLinear()
+            .domain([0, 100])
+            .range(['white', '#4169e1']);
+
+        function render(data) {
+            let svg = d3.select("#chart").append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append('g')
+                .attr("transform", "translate(" + margin.left + ", " + margin.top + ")");
+
+
+            let xLabels = renderXLabel(svg, data);
+            let yLabels = renderYLabel(svg, data);
+            let heatMap = renderSquare(svg, data);
+        }
+
+        function renderYLabel(svg, data) {
+            let g = svg.append('g')
+                .attr('class', 'xlabel');
+            let yLabel = g.selectAll(".nameLabel")
+                .data(data)
+                .enter()
+                .append("text")
+                .text(function(d, i) {
+                    // console.log(data[i].name)
+                    return data[i].name;
+                })
+                .attr("x", 0)
+                .attr('y', function(d, i) {
+                    return i * gridSize;
+                })
+                .style("text-anchor", 'end')
+                .attr("transform", "translate(" + "-6" + ", " + gridSize / 1.5 + ")")
+                .attr('class', function(d, i) {
+                    return (i >= 0 && i <= 4) ? "nameLabel mono axis axis-workweek" : "nameLabel mono axis";
+                });
+            return yLabel;
+        }
+
+        function renderXLabel(svg, data) {
+            let g = svg.append('g')
+                .attr('class', 'ylabel');
+            let xLabel = g.selectAll(".testLabel")
+                .data(XlabelName)
+                .enter().append("text")
+                .text(function(d) {
+                    return d;
+                })
+                .attr("x", function(d, i) {
+                    return i * gridSize;
+                })
+                .attr("y", 0)
+                .style("text-anchor", "middle")
+                .attr("transform", "translate(" + gridSize / 2 + ", -6)")
+                .attr("class", function(d, i) {
+                    return ((i >= 7 && i <= 16) ? "testLabel mono axis axis-worktime" : "testLabel mono axis");
+                })
+            return xLabel;
+        }
+
+        function renderSquare(svg, data) {
+
+            let g = svg.append("g")
+                .attr("class", "square")
+
+            for (let i = 0; i < 50; i++) {
+                let gchild = g.append("g")
+                    .attr("class", "row")
+                    .attr("transform", "translate(" + "0" + "," + i * gridSize + ")");
+
+                let array_data = [];
+                for (let tag in data[i]) {
+                    if (tag != 'name')
+                        array_data.push(data[i][tag]);
+                }
+
+                let heatMap = gchild.selectAll(".score")
+                    .data(array_data)
+                    .enter()
+                    .append("rect")
+                    .attr("x", (d, i) => i * gridSize)
+                    .attr("class", "hour bordered")
+                    .attr("width", gridSize)
+                    .attr("height", gridSize)
+                    .style("fill", function(d) {
+                        return colorScale(d);
+                    });
+
+                heatMap.append("title").text(function(d) {
+                    return d;
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

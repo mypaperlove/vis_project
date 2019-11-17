@@ -3,8 +3,16 @@
     height: 100%;
 }
 
-#slider {
-    display: inline-block;
-    width: 30% !important;
-    height: 100%
+#ex1Slider .slider-selection {
+    background: rgb(184, 57, 57);
+    /* width: 50% !important; */
+}
+
+.slider.slider-horizontal {
+    width: 70% !important;
+    height: 15px !important;
+}
+
+.left-bottom {
+    text-align: center;
 }
