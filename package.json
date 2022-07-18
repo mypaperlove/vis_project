@@ -8,7 +8,7 @@
         "bootstrap-slider": "^10.6.2",
         "echarts": "^4.4.0",
         "jquery": "^3.4.1",
-        "jquery-ui": "^1.12.1",
+        "jquery-ui": "^1.13.2",
         "nan": "^2.14.0",
         "popper": "^1.0.1",
         "popper.js": "^1.14.7"
